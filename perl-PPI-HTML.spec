@@ -1,7 +1,7 @@
 
 %define realname   PPI-HTML
 %define version    1.07
-%define release    %mkrel 1
+%define release    %mkrel 2
 
 Name:       perl-%{realname}
 Version:    %{version}
