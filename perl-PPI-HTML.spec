@@ -1,35 +1,30 @@
+%define upstream_name    PPI-HTML
+%define upstream_version 1.07
 
-%define realname   PPI-HTML
-%define version    1.07
-%define release    %mkrel 2
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
-Name:       perl-%{realname}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
 Summary:    Generate syntax-hightlighted HTML for Perl using PPI
-Source:     http://www.cpan.org/modules/by-module/PPI/%{realname}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{realname}
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: perl-devel
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/PPI/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(CSS::Tiny)
 BuildRequires: perl(File::Spec)
 BuildRequires: perl(PPI)
 BuildRequires: perl(Params::Util)
 BuildRequires: perl(Test::More)
-
 BuildArch: noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 PPI::HTML converts Perl documents into syntax highlighted HTML pages.
 
 
-
-
-
 %prep
-%setup -q -n %{realname}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version} 
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
