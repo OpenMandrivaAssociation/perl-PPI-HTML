@@ -1,15 +1,13 @@
 %define upstream_name    PPI-HTML
-%define upstream_version 1.08
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Version:	1.08
+Release:	6
 
 Summary:	Generate syntax-hightlighted HTML for Perl using PPI
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/PPI/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/PPI/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -25,7 +23,7 @@ PPI::HTML converts Perl documents into syntax highlighted HTML pages.
 
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version} 
+%setup -q -n %{upstream_name}-%{version} 
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -55,8 +53,7 @@ make test
 
 * Tue Jul 28 2009 Jérôme Quelin <jquelin@mandriva.org> 1.70.0-1mdv2010.0
 + Revision: 401613
-- rebuild using %%perl_convert_version
-- fixed license field
+- rebuild using %1.08 fixed license field
 
 * Fri May 15 2009 Jérôme Quelin <jquelin@mandriva.org> 1.07-2mdv2010.0
 + Revision: 375906
